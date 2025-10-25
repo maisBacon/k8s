@@ -1,0 +1,21 @@
+name: CI/CD to K8s via Argo
+on:
+  push:
+    branches: [main]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build Docker
+      run: |
+        docker build -t renaneiras/meu-app:${{ github.sha }} .
+        docker push renaneiras/meu-app:${{ github.sha }}
+    - name: Update YAML with New Image
+      run: |
+        sed -i 's|image: .*$|image: renaneiras/meu-app:${{ github.sha }}|' k8s/app-deployment.yaml
+        git config user.name "Renan"
+        git config user.email "renann.eiras@gmail.com"
+        git add k8s/app-deployment.yaml
+        git commit -m "Update image to ${{ github.sha }}"
+        git push
