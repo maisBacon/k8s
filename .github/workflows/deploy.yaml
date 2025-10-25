@@ -19,9 +19,9 @@ jobs:
     - name: Update YAML with New Image
       run: |
         # Usa sed mais seguro pra substituir só a image, ignorando comentários
-        sed -i "s|image: .*|image: renaneiras/meu-app:${{ github.sha }}|g" k8s/devops/app-deployment.yaml
+        sed -i "s|image: .*|image: renaneiras/meu-app:${{ github.sha }}|g" devops/app-deployment.yaml
         git config user.name "Renan"
         git config user.email "renann.eiras@gmail.com"
-        git add k8s/devops/app-deployment.yaml
+        git add devops/app-deployment.yaml
         git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
         git push
