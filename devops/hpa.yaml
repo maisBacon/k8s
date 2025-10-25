@@ -7,7 +7,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: meu-app  # <- Nome do teu deployment
-  minReplicas: 2  # Mínimo de pods (não desce abaixo)
+  minReplicas: 1  # Mínimo de pods (não desce abaixo)
   maxReplicas: 6  # Máximo (pra não explodir recursos)
   behavior:
     scaleDown:
