@@ -1,0 +1,39 @@
+apiVersion: autoscaling/v2  # v2 é o mais novo, suporta mais métricas
+kind: HorizontalPodAutoscaler
+metadata:
+  name: meu-app-hpa  # Nome único
+spec:
+  scaleTargetRef:  # Aponta pro teu deployment
+    apiVersion: apps/v1
+    kind: Deployment
+    name: meu-app  # <- Nome do teu deployment
+  minReplicas: 2  # Mínimo de pods (não desce abaixo)
+  maxReplicas: 6  # Máximo (pra não explodir recursos)
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+      selectPolicy: Disabled
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      selectPolicy: Disabled
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+      - type: Pods
+        value: 1
+        periodSeconds: 15
+  metrics:  # Regras de escala
+  - type: Resource
+    resource:
+      name: cpu  # Métrica: CPU
+      target:
+        type: Utilization
+        averageUtilization: 50  # Escala se CPU médio >50% nos pods
+  # Opcional: Adiciona RAM
+  # - type: Resource
+  #   resource:
+  #     name: memory
+  #     target:
+  #       type: Utilization
+  #       averageUtilization: 80
