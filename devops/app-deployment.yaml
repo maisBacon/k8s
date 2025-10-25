@@ -12,9 +12,21 @@ spec:
       labels:
         app: meu-app
     spec:
+      serviceAccountName: meu-sa
       containers:
-      - name: meu-container
+      - name: meu-app
         image: renaneiras/meu-app:65afe547f40b33c067c9bff90c4947e5b1788d90
+        env:
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: meu-config
+              key: LOG_LEVEL
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: meu-config
+              key: DB_URL
         ports:
         - containerPort: 3000
         resources:

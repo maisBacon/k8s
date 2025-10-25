@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: meu-config  # Nome único
+data:
+  LOG_LEVEL: "debug"  # Chave: valor (env var pro app)
+  DB_URL: "postgres://localhost:5432/meuapp"  # Exemplo de config
