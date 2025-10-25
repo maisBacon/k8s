@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: meu-container
-        image: meu-app:v1  # <- Imagem do meu-app:v1
+        image: renaneiras/meu-app:65afe547f40b33c067c9bff90c4947e5b1788d90
         ports:
         - containerPort: 3000
         resources:
