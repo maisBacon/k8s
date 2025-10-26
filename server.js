@@ -3,6 +3,8 @@ const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
+
+  console.log('Request received');
   res.json({
     message: 'Hello from Kubernetes!!!! TESTING 123',
     timestamp: new Date().toISOString(),
@@ -11,6 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
+  console.log('Health check received');
   res.status(200).json({ status: 'healthy' });
 });
 
