@@ -8,5 +8,5 @@ spec:
   ports:
   - protocol: TCP
     port: 80  # Porta externa
-    targetPort: 3000  # Porta do pod
+    targetPort: 3000  # Porta do pod¬
   type: LoadBalancer  # Expõe pro mundo
