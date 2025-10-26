@@ -17,6 +17,16 @@ spec:
       - name: meu-app
         image: renaneiras/meu-app:5a588e468aaa359ab7eab8de5c3efde08daeec2c
         env:
+        - name: NEW_RELIC_APP_NAME
+          value: "k8s-app"
+        - name: NEW_RELIC_LICENSE_KEY
+          value: "b4f962a57a224623c28eca7b518a7b0dFFFFNRAL"
+        - name: NEW_RELIC_LOG
+          value: "stdout"
+        - name: NEW_RELIC_LOG_LEVEL
+          value: "info"
+        - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
+          value: "true"
         - name: LOG_LEVEL
           valueFrom:
             configMapKeyRef:

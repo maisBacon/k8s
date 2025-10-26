@@ -1,11 +1,11 @@
 'use strict';
 module.exports = {
-  app_name: 'k8s',
-  license_key: 'b4f962a57a224623c28eca7b518a7b0dFFFFNRAL',
+  app_name: [process.env.NEW_RELIC_APP_NAME],
+  license_key: process.env.NEW_RELIC_LICENSE_KEY,
   logging: {
-    level: 'info'
+    level: process.env.NEW_RELIC_LOG_LEVEL || 'info'
   },
   distributed_tracing: {
-    enabled: true
+    enabled: process.env.NEW_RELIC_DISTRIBUTED_TRACING_ENABLED === 'true'
   }
 };
