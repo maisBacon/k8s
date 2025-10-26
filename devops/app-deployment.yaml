@@ -15,7 +15,7 @@ spec:
       serviceAccountName: meu-sa
       containers:
       - name: meu-app
-        image: renaneiras/meu-app:36fa14af6f4f785d7724555c07a60c40fd4ea893
+        image: renaneiras/meu-app:4419b79cf572a77d790c8c0dec046c123d0b9c99
         env:
         - name: LOG_LEVEL
           valueFrom:
