@@ -4,7 +4,7 @@ const PORT = 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hello from Kubernetes!!!! ',
+    message: 'Hello from Kubernetes!!!! TESTING 123',
     timestamp: new Date().toISOString(),
     hostname: require('os').hostname()
   });
