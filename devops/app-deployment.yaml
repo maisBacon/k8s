@@ -15,7 +15,7 @@ spec:
       serviceAccountName: meu-sa
       containers:
       - name: meu-app
-        image: renaneiras/meu-app:3fa8732457d59cfcf5d6b165adf757cce0fb6178
+        image: renaneiras/meu-app:cf4c46dd28233054f3c6fcd33f02f89f64880c0b
         env:
         - name: NEW_RELIC_APP_NAME
           value: "k8s-app"
