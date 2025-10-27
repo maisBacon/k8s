@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 
   console.log('Request received');
   res.json({
-    message: 'Hello from Kubernetes!!!! TESTING 123',
+    message: 'Hello from Kubernetes!!!! TESTING 1234',
     timestamp: new Date().toISOString(),
     hostname: require('os').hostname()
   });
